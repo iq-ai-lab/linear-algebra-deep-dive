@@ -70,11 +70,70 @@
 
 [![Ch1](https://img.shields.io/badge/🔹_Ch1-벡터공간과_선형변환의_공리-4A90D9?style=for-the-badge)](./ch1-vector-space-axioms/01-vector-space-8-axioms.md)
 [![Ch2](https://img.shields.io/badge/🔹_Ch2-행렬_분해_완전_분해-4A90D9?style=for-the-badge)](./ch2-matrix-decomposition/01-lu-decomposition.md)
-[![Ch3](https://img.shields.io/badge/🔹_Ch3-고유값과_스펙트럴_이론-4A90D9?style=for-the-badge)](./ch3-eigenvalue-spectral/01-characteristic-polynomial.md)
-[![Ch4](https://img.shields.io/badge/🔹_Ch4-SVD와_저랭크_근사-4A90D9?style=for-the-badge)](./ch4-svd-low-rank/01-svd-geometric-derivation.md)
-[![Ch5](https://img.shields.io/badge/🔹_Ch5-내적공간과_투영-4A90D9?style=for-the-badge)](./ch5-inner-product-projection/01-inner-product-cauchy-schwarz.md)
-[![Ch6](https://img.shields.io/badge/🔹_Ch6-텐서와_다선형_대수-4A90D9?style=for-the-badge)](./ch6-tensor-multilinear/01-tensor-definition.md)
-[![Ch7](https://img.shields.io/badge/🔹_Ch7-AI·ML에서의_선형대수-4A90D9?style=for-the-badge)](./ch7-ai-applications/01-attention-linear-algebra.md)
+[![Ch3](https://img.shields.io/badge/🔹_Ch3-고유값과_스펙트럴_이론-4A90D9?style=for-the-badge)](./ch3-eigenvalue-theory/01-characteristic-polynomial.md)
+[![Ch4](https://img.shields.io/badge/🔹_Ch4-SVD와_저랭크_근사-4A90D9?style=for-the-badge)](./ch4-svd/01-svd-geometric.md)
+[![Ch5](https://img.shields.io/badge/🔹_Ch5-내적공간과_투영-4A90D9?style=for-the-badge)](./ch5-inner-product/01-inner-product-cauchy-schwarz.md)
+[![Ch6](https://img.shields.io/badge/🔹_Ch6-텐서와_다선형_대수-4A90D9?style=for-the-badge)](./ch6-tensor/01-tensor-definition.md)
+[![Ch7](https://img.shields.io/badge/🔹_Ch7-AI·ML에서의_선형대수-4A90D9?style=for-the-badge)](./ch7-ml-applications/01-attention-linear-algebra.md)
+
+---
+
+## 🗂️ 디렉터리 구조
+
+```
+linear-algebra-deep-dive/
+├── README.md
+├── ch1-vector-space-axioms/          (6개 문서)
+│   ├── 01-vector-space-8-axioms.md
+│   ├── 02-basis-dimension.md
+│   ├── 03-linear-transformation-matrix.md
+│   ├── 04-rank-nullity.md
+│   ├── 05-four-fundamental-subspaces.md
+│   └── 06-dual-space.md
+├── ch2-matrix-decomposition/         (7개 문서)
+│   ├── 01-lu-decomposition.md
+│   ├── 02-qr-decomposition.md
+│   ├── 03-cholesky-decomposition.md
+│   ├── 04-eigendecomposition.md
+│   ├── 05-spectral-theorem.md
+│   ├── 06-jordan-form.md
+│   └── 07-complexity-stability.md
+├── ch3-eigenvalue-theory/            (6개 문서)
+│   ├── 01-characteristic-polynomial.md
+│   ├── 02-eigenvalue-geometry.md
+│   ├── 03-rayleigh-quotient.md
+│   ├── 04-perron-frobenius.md
+│   ├── 05-power-qr-algorithm.md
+│   └── 06-condition-number.md
+├── ch4-svd/                          (6개 문서)
+│   ├── 01-svd-geometric.md
+│   ├── 02-svd-existence.md
+│   ├── 03-pseudoinverse.md
+│   ├── 04-eckart-young.md
+│   ├── 05-pca.md
+│   └── 06-randomized-svd.md
+├── ch5-inner-product/                (5개 문서)
+│   ├── 01-inner-product-cauchy-schwarz.md
+│   ├── 02-orthogonal-projection.md
+│   ├── 03-least-squares.md
+│   ├── 04-gram-matrix-psd.md
+│   └── 05-qr-reinterpretation.md
+├── ch6-tensor/                       (5개 문서)
+│   ├── 01-tensor-definition.md
+│   ├── 02-kronecker-product.md
+│   ├── 03-einsum.md
+│   ├── 04-tensor-decomposition.md
+│   └── 05-nn-weight-tensor.md
+└── ch7-ml-applications/              (6개 문서)
+    ├── 01-attention-linear-algebra.md
+    ├── 02-backpropagation.md
+    ├── 03-batchnorm.md
+    ├── 04-spectral-normalization.md
+    ├── 05-rope.md
+    └── 06-random-matrix-theory.md
+```
+
+**총 41개 문서** · Ch1–Ch2는 기초 공리·분해, Ch3–Ch4는 고유값·SVD, Ch5는 내적·투영, Ch6은 텐서, Ch7은 최신 AI/ML 응용.
 
 ---
 
@@ -140,12 +199,12 @@
 
 | 문서 | 핵심 정리·증명 |
 |------|--------------|
-| [01. 특성다항식과 Cayley-Hamilton](./ch3-eigenvalue-spectral/01-characteristic-polynomial.md) | $\det(A - \lambda I) = 0$의 도출, 대수적 중복도의 정의, **Cayley-Hamilton 정리** "$A$는 자기의 특성다항식을 만족한다 $p_A(A) = 0$"의 완전 증명 ($\text{adj}$ 관점), 행렬의 역수·거듭제곱 표현 응용 |
-| [02. 고유값의 기하학적 의미](./ch3-eigenvalue-spectral/02-eigenvalue-geometric-meaning.md) | 고유벡터 = **변환의 불변 방향**, $A^k$의 거동이 $\lambda^k$로 결정되는 이유, Markov chain의 정상분포·동역학계의 안정성과의 관계, 대칭 $A$에서 최대 고유값 방향이 가장 "늘어나는" 방향임을 시각화 |
-| [03. Rayleigh Quotient와 Min-Max 정리](./ch3-eigenvalue-spectral/03-rayleigh-quotient.md) | $R(x) = \frac{x^\top A x}{x^\top x}$의 정의, **대칭 $A$에 대해 $\max R = \lambda_{\max}$, $\min R = \lambda_{\min}$** 을 라그랑주 승수법으로 증명, **Courant-Fischer Min-Max 정리**로 $\lambda_k$의 변분 표현 유도, PCA의 기초 |
-| [04. Perron-Frobenius 정리](./ch3-eigenvalue-spectral/04-perron-frobenius.md) | **양의 원소 행렬**의 **유일한 최대 실고유값의 존재성과 양의 고유벡터**를 Brouwer 고정점 정리 스케치로 증명, PageRank의 수렴성 해석, Markov chain의 정상분포 유일성 |
-| [05. Power Iteration과 QR Algorithm](./ch3-eigenvalue-spectral/05-power-iteration-qr.md) | **Power Iteration** $x_{k+1} = Ax_k/\|Ax_k\|$의 수렴 증명, 수렴 속도 $|\lambda_2/\lambda_1|^k$, **QR Algorithm**으로 모든 고유값을 구하는 반복법, Shift와 Deflation, `np.linalg.eig` 내부 알고리즘 |
-| [06. 조건수와 수치 안정성](./ch3-eigenvalue-spectral/06-condition-number.md) | 대칭 양정부호에서 $\kappa(A) = \lambda_{\max}/\lambda_{\min}$, 일반에서 $\kappa(A) = \sigma_{\max}/\sigma_{\min}$, $Ax = b$의 오차 전파 부등식 $\|\Delta x\|/\|x\| \leq \kappa(A) \|\Delta b\|/\|b\|$ 증명, **딥러닝의 헤시안 조건수**와 학습 안정성 |
+| [01. 특성다항식과 Cayley-Hamilton](./ch3-eigenvalue-theory/01-characteristic-polynomial.md) | $\det(A - \lambda I) = 0$의 도출, 대수적 중복도의 정의, **Cayley-Hamilton 정리** "$A$는 자기의 특성다항식을 만족한다 $p_A(A) = 0$"의 완전 증명 ($\text{adj}$ 관점), 행렬의 역수·거듭제곱 표현 응용 |
+| [02. 고유값의 기하학적 의미](./ch3-eigenvalue-theory/02-eigenvalue-geometry.md) | 고유벡터 = **변환의 불변 방향**, $A^k$의 거동이 $\lambda^k$로 결정되는 이유, Markov chain의 정상분포·동역학계의 안정성과의 관계, 대칭 $A$에서 최대 고유값 방향이 가장 "늘어나는" 방향임을 시각화 |
+| [03. Rayleigh Quotient와 Min-Max 정리](./ch3-eigenvalue-theory/03-rayleigh-quotient.md) | $R(x) = \frac{x^\top A x}{x^\top x}$의 정의, **대칭 $A$에 대해 $\max R = \lambda_{\max}$, $\min R = \lambda_{\min}$** 을 라그랑주 승수법으로 증명, **Courant-Fischer Min-Max 정리**로 $\lambda_k$의 변분 표현 유도, PCA의 기초 |
+| [04. Perron-Frobenius 정리](./ch3-eigenvalue-theory/04-perron-frobenius.md) | **양의 원소 행렬**의 **유일한 최대 실고유값의 존재성과 양의 고유벡터**를 Brouwer 고정점 정리 스케치로 증명, PageRank의 수렴성 해석, Markov chain의 정상분포 유일성 |
+| [05. Power Iteration과 QR Algorithm](./ch3-eigenvalue-theory/05-power-qr-algorithm.md) | **Power Iteration** $x_{k+1} = Ax_k/\|Ax_k\|$의 수렴 증명, 수렴 속도 $|\lambda_2/\lambda_1|^k$, **QR Algorithm**으로 모든 고유값을 구하는 반복법, Shift와 Deflation, `np.linalg.eig` 내부 알고리즘 |
+| [06. 조건수와 수치 안정성](./ch3-eigenvalue-theory/06-condition-number.md) | 대칭 양정부호에서 $\kappa(A) = \lambda_{\max}/\lambda_{\min}$, 일반에서 $\kappa(A) = \sigma_{\max}/\sigma_{\min}$, $Ax = b$의 오차 전파 부등식 $\|\Delta x\|/\|x\| \leq \kappa(A) \|\Delta b\|/\|b\|$ 증명, **딥러닝의 헤시안 조건수**와 학습 안정성 |
 
 </details>
 
@@ -162,12 +221,12 @@
 
 | 문서 | 핵심 정리·증명 |
 |------|--------------|
-| [01. SVD의 기하학적 유도](./ch4-svd-low-rank/01-svd-geometric-derivation.md) | **단위구가 타원체로 변환되는** 시각을 통한 SVD의 기하 해석, 특이값 = 타원체의 반축 길이, 왼쪽·오른쪽 특이벡터의 의미, $A = \sum_i \sigma_i u_i v_i^\top$ (dyad 합) 분해 |
-| [02. SVD의 존재성과 유일성 증명](./ch4-svd-low-rank/02-svd-existence-proof.md) | **Spectral Theorem을 $A^\top A$에 적용**하여 완전 유도: (1) $A^\top A$ 대칭 양의 준정부호 → 고유값 ≥ 0, (2) $\sigma_i = \sqrt{\lambda_i(A^\top A)}$, (3) $u_i = Av_i / \sigma_i$의 정규직교성 증명, (4) $A$에 대한 SVD 완성, 특이값의 유일성 |
-| [03. Pseudoinverse와 최소제곱](./ch4-svd-low-rank/03-pseudoinverse-least-squares.md) | **Moore-Penrose 역행렬** $A^+ = V\Sigma^+ U^\top$의 정의와 4가지 공리, **정규방정식** $A^\top A x = A^\top b$의 해가 $x^* = A^+ b$임을 증명, 과결정·미결정계의 최소제곱 해석 |
-| [04. Eckart-Young 정리](./ch4-svd-low-rank/04-eckart-young.md) | 저랭크 근사 $A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top$이 **Frobenius·Spectral 노름 양쪽에서 최적**임의 완전 증명, 오차 $\|A - A_k\|_F^2 = \sum_{i>k} \sigma_i^2$의 유도, 이미지 압축과 행렬 보간(matrix completion)의 이론적 기반 |
-| [05. 주성분분석(PCA) 완전 유도](./ch4-svd-low-rank/05-pca-derivation.md) | $\max_{\\|v\\|=1} v^\top \Sigma v$를 **라그랑주 승수**로 풀어 $\Sigma v = \lambda v$ 도출 → **주성분 = 공분산 행렬의 고유벡터**, 데이터 행렬 $X$의 SVD가 같은 결과를 주는 이유, 주성분 개수 선택과 설명 분산 비율 |
-| [06. Randomized SVD](./ch4-svd-low-rank/06-randomized-svd.md) | **Halko-Martinsson-Tropp 알고리즘**: 랜덤 투영 $Y = A\Omega$ → QR → 소형 SVD로 상위 $k$ 특이값을 근사, 오차 경계 증명 스케치, 대규모 추천시스템·LSA에서의 활용 |
+| [01. SVD의 기하학적 유도](./ch4-svd/01-svd-geometric.md) | **단위구가 타원체로 변환되는** 시각을 통한 SVD의 기하 해석, 특이값 = 타원체의 반축 길이, 왼쪽·오른쪽 특이벡터의 의미, $A = \sum_i \sigma_i u_i v_i^\top$ (dyad 합) 분해 |
+| [02. SVD의 존재성과 유일성 증명](./ch4-svd/02-svd-existence.md) | **Spectral Theorem을 $A^\top A$에 적용**하여 완전 유도: (1) $A^\top A$ 대칭 양의 준정부호 → 고유값 ≥ 0, (2) $\sigma_i = \sqrt{\lambda_i(A^\top A)}$, (3) $u_i = Av_i / \sigma_i$의 정규직교성 증명, (4) $A$에 대한 SVD 완성, 특이값의 유일성 |
+| [03. Pseudoinverse와 최소제곱](./ch4-svd/03-pseudoinverse.md) | **Moore-Penrose 역행렬** $A^+ = V\Sigma^+ U^\top$의 정의와 4가지 공리, **정규방정식** $A^\top A x = A^\top b$의 해가 $x^* = A^+ b$임을 증명, 과결정·미결정계의 최소제곱 해석 |
+| [04. Eckart-Young 정리](./ch4-svd/04-eckart-young.md) | 저랭크 근사 $A_k = \sum_{i=1}^k \sigma_i u_i v_i^\top$이 **Frobenius·Spectral 노름 양쪽에서 최적**임의 완전 증명, 오차 $\|A - A_k\|_F^2 = \sum_{i>k} \sigma_i^2$의 유도, 이미지 압축과 행렬 보간(matrix completion)의 이론적 기반 |
+| [05. 주성분분석(PCA) 완전 유도](./ch4-svd/05-pca.md) | $\max_{\\|v\\|=1} v^\top \Sigma v$를 **라그랑주 승수**로 풀어 $\Sigma v = \lambda v$ 도출 → **주성분 = 공분산 행렬의 고유벡터**, 데이터 행렬 $X$의 SVD가 같은 결과를 주는 이유, 주성분 개수 선택과 설명 분산 비율 |
+| [06. Randomized SVD](./ch4-svd/06-randomized-svd.md) | **Halko-Martinsson-Tropp 알고리즘**: 랜덤 투영 $Y = A\Omega$ → QR → 소형 SVD로 상위 $k$ 특이값을 근사, 오차 경계 증명 스케치, 대규모 추천시스템·LSA에서의 활용 |
 
 </details>
 
@@ -184,11 +243,11 @@
 
 | 문서 | 핵심 정리·증명 |
 |------|--------------|
-| [01. 내적공간의 공리와 Cauchy-Schwarz](./ch5-inner-product-projection/01-inner-product-cauchy-schwarz.md) | 내적의 3공리(쌍선형성·대칭성·양정치성), **$\|\langle x, y\rangle\| \leq \\|x\\|\\|y\\|$** 의 완전 증명 ($f(t) = \\|x - ty\\|^2 \geq 0$의 판별식), 등호 조건과 노름의 정의, 삼각부등식 유도 |
-| [02. 직교투영의 기하](./ch5-inner-product-projection/02-orthogonal-projection.md) | 부분공간 $W$ 위로의 투영 $P_W = A(A^\top A)^{-1} A^\top$의 도출, **$P^2 = P = P^\top$**의 의미 (idempotent + symmetric), 직교보공간 $W^\perp$, $V = W \oplus W^\perp$ 분해 증명 |
-| [03. 최소제곱의 기하학적 의미](./ch5-inner-product-projection/03-least-squares-geometry.md) | $\min \|Ax - b\|^2$의 해가 **$b$의 $\text{Col}(A)$ 위로의 투영**임을 기하적으로 증명, 정규방정식 $A^\top A x = A^\top b$의 유도, **잔차 $r \perp \text{Col}(A)$**의 의미 |
-| [04. Gram 행렬과 양의 정부호성](./ch5-inner-product-projection/04-gram-matrix-psd.md) | $G_{ij} = \langle v_i, v_j\rangle$의 정의, **$G \succeq 0$** 의 증명 ($x^\top G x = \\|\sum x_i v_i\\|^2 \geq 0$), $G \succ 0 \iff v_i$들이 선형독립, **커널 트릭**의 기초 $k(x, y) = \langle \phi(x), \phi(y)\rangle$ |
-| [05. QR 분해 재해석](./ch5-inner-product-projection/05-qr-reinterpretation.md) | $A = QR$이 $A$의 열벡터들을 **정규직교화**하는 과정임을 투영 관점에서 재해석, $R$의 대각성분 = 새 열벡터의 정규직교 기저에서의 크기, **Krylov 공간** $\mathcal{K}_k(A, b)$의 출발점과 Arnoldi·Lanczos 알고리즘 예고 |
+| [01. 내적공간의 공리와 Cauchy-Schwarz](./ch5-inner-product/01-inner-product-cauchy-schwarz.md) | 내적의 3공리(쌍선형성·대칭성·양정치성), **$\|\langle x, y\rangle\| \leq \\|x\\|\\|y\\|$** 의 완전 증명 ($f(t) = \\|x - ty\\|^2 \geq 0$의 판별식), 등호 조건과 노름의 정의, 삼각부등식 유도 |
+| [02. 직교투영의 기하](./ch5-inner-product/02-orthogonal-projection.md) | 부분공간 $W$ 위로의 투영 $P_W = A(A^\top A)^{-1} A^\top$의 도출, **$P^2 = P = P^\top$**의 의미 (idempotent + symmetric), 직교보공간 $W^\perp$, $V = W \oplus W^\perp$ 분해 증명 |
+| [03. 최소제곱의 기하학적 의미](./ch5-inner-product/03-least-squares.md) | $\min \|Ax - b\|^2$의 해가 **$b$의 $\text{Col}(A)$ 위로의 투영**임을 기하적으로 증명, 정규방정식 $A^\top A x = A^\top b$의 유도, **잔차 $r \perp \text{Col}(A)$**의 의미 |
+| [04. Gram 행렬과 양의 정부호성](./ch5-inner-product/04-gram-matrix-psd.md) | $G_{ij} = \langle v_i, v_j\rangle$의 정의, **$G \succeq 0$** 의 증명 ($x^\top G x = \\|\sum x_i v_i\\|^2 \geq 0$), $G \succ 0 \iff v_i$들이 선형독립, **커널 트릭**의 기초 $k(x, y) = \langle \phi(x), \phi(y)\rangle$ |
+| [05. QR 분해 재해석](./ch5-inner-product/05-qr-reinterpretation.md) | $A = QR$이 $A$의 열벡터들을 **정규직교화**하는 과정임을 투영 관점에서 재해석, $R$의 대각성분 = 새 열벡터의 정규직교 기저에서의 크기, **Krylov 공간** $\mathcal{K}_k(A, b)$의 출발점과 Arnoldi·Lanczos 알고리즘 예고 |
 
 </details>
 
@@ -205,11 +264,11 @@
 
 | 문서 | 핵심 정리·증명 |
 |------|--------------|
-| [01. 텐서의 수학적 정의](./ch6-tensor-multilinear/01-tensor-definition.md) | **다중선형 사상 $T: V^* \times \cdots \times V \to \mathbb{R}$** 으로서의 텐서 정의, "좌표 변환 규칙을 따르는 배열"(물리학자 관점)과의 동치성, $(p, q)$-텐서의 분류, 공변·반변 지표의 구분 |
-| [02. 텐서곱과 크로네커곱](./ch6-tensor-multilinear/02-tensor-kronecker.md) | 벡터공간의 텐서곱 $V \otimes W$ 구성 (universal property), **크로네커곱** $A \otimes B$의 정의와 $(A \otimes B)(x \otimes y) = Ax \otimes By$ 증명, **고유값 관계** $\text{eig}(A \otimes B) = \{\lambda_i \mu_j\}$ |
-| [03. Einstein Summation과 einsum](./ch6-tensor-multilinear/03-einstein-summation-einsum.md) | 지표 표기법 규칙(중복 지표는 합), $c_{ik} = a_{ij} b_{jk}$(행렬곱), $c = a_{ij} b_{ij}$(Frobenius 내적), **NumPy `einsum`과의 1:1 대응** 매핑, Attention·Conv·Batch 연산의 einsum 표현 |
-| [04. 텐서 분해](./ch6-tensor-multilinear/04-tensor-decomposition.md) | **CP 분해** $\mathcal{T} = \sum_r a_r \otimes b_r \otimes c_r$의 정의와 유일성 조건(Kruskal), **Tucker 분해** $\mathcal{T} = \mathcal{G} \times_1 U_1 \times_2 U_2 \times_3 U_3$ — SVD의 고차 일반화, **PCA의 텐서 확장** |
-| [05. 신경망 가중치의 텐서 관점](./ch6-tensor-multilinear/05-nn-weight-tensor.md) | **Conv2D 가중치가 $(C_{\text{out}}, C_{\text{in}}, k_h, k_w)$의 4차원 텐서**인 이유, Attention의 $QK^\top V$가 3-텐서 연산인 관점, K-FAC이 Fisher를 **Kronecker 분해** $F_\ell \approx A_\ell \otimes S_\ell$로 근사하는 수학적 근거 |
+| [01. 텐서의 수학적 정의](./ch6-tensor/01-tensor-definition.md) | **다중선형 사상 $T: V^* \times \cdots \times V \to \mathbb{R}$** 으로서의 텐서 정의, "좌표 변환 규칙을 따르는 배열"(물리학자 관점)과의 동치성, $(p, q)$-텐서의 분류, 공변·반변 지표의 구분 |
+| [02. 텐서곱과 크로네커곱](./ch6-tensor/02-kronecker-product.md) | 벡터공간의 텐서곱 $V \otimes W$ 구성 (universal property), **크로네커곱** $A \otimes B$의 정의와 $(A \otimes B)(x \otimes y) = Ax \otimes By$ 증명, **고유값 관계** $\text{eig}(A \otimes B) = \{\lambda_i \mu_j\}$ |
+| [03. Einstein Summation과 einsum](./ch6-tensor/03-einsum.md) | 지표 표기법 규칙(중복 지표는 합), $c_{ik} = a_{ij} b_{jk}$(행렬곱), $c = a_{ij} b_{ij}$(Frobenius 내적), **NumPy `einsum`과의 1:1 대응** 매핑, Attention·Conv·Batch 연산의 einsum 표현 |
+| [04. 텐서 분해](./ch6-tensor/04-tensor-decomposition.md) | **CP 분해** $\mathcal{T} = \sum_r a_r \otimes b_r \otimes c_r$의 정의와 유일성 조건(Kruskal), **Tucker 분해** $\mathcal{T} = \mathcal{G} \times_1 U_1 \times_2 U_2 \times_3 U_3$ — SVD의 고차 일반화, **PCA의 텐서 확장** |
+| [05. 신경망 가중치의 텐서 관점](./ch6-tensor/05-nn-weight-tensor.md) | **Conv2D 가중치가 $(C_{\text{out}}, C_{\text{in}}, k_h, k_w)$의 4차원 텐서**인 이유, Attention의 $QK^\top V$가 3-텐서 연산인 관점, K-FAC이 Fisher를 **Kronecker 분해** $F_\ell \approx A_\ell \otimes S_\ell$로 근사하는 수학적 근거 |
 
 </details>
 
@@ -226,12 +285,12 @@
 
 | 문서 | 핵심 정리·증명 |
 |------|--------------|
-| [01. Attention의 선형대수](./ch7-ai-applications/01-attention-linear-algebra.md) | $\text{softmax}(QK^\top/\sqrt{d}) V$의 **각 항의 기하학적 의미**: $QK^\top$ = 내적 유사도 행렬, softmax = 심플렉스 위의 확률 투영, $V$ 곱 = 가중평균, **$\sqrt{d}$ 스케일링**의 분산 분석 유도(독립 가정 하 $\text{Var}(q \cdot k) = d$) |
-| [02. Backpropagation의 야코비안 관점](./ch7-ai-applications/02-backprop-jacobian.md) | 연쇄법칙 $\frac{\partial L}{\partial x} = \frac{\partial L}{\partial y} \frac{\partial y}{\partial x}$가 **행렬곱**으로 환원되는 이유, **Vector-Jacobian Product (VJP)** 의 효율성, forward-mode(JVP) vs reverse-mode(VJP)의 계산량 비교, autograd의 선형대수적 기반 |
-| [03. Batch Normalization의 조건수 개선](./ch7-ai-applications/03-batchnorm-conditioning.md) | 입력 분포 정규화가 **헤시안 $H = X^\top X$ 의 조건수**에 미치는 영향 유도, whitening 관점에서 $\kappa(H) \to 1$로 향하는 기전, Gradient Descent 수렴 속도와 조건수의 관계 $\|\theta_k - \theta^*\| \leq ((\kappa-1)/(\kappa+1))^k \|\theta_0 - \theta^*\|$ |
-| [04. Spectral Normalization과 GAN](./ch7-ai-applications/04-spectral-norm-gan.md) | **립시츠 상수 = $\sigma_{\max}(W)$** 의 증명, Power Iteration으로 $\sigma_{\max}$를 학습 중 효율적으로 추정, Wasserstein GAN의 1-립시츠 제약을 $W \to W/\sigma_{\max}(W)$로 강제하는 근거, 실제 구현(SN-GAN) |
-| [05. RoPE(Rotary Positional Encoding)](./ch7-ai-applications/05-rope-rotation.md) | 위치 인코딩을 **2D 회전 행렬** $R_\theta = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$로 해석, 복소수 $e^{i\theta}$와의 동치성, **직교성 $R^\top R = I$** 이 내적 보존을 주는 이유, 상대 위치 인코딩 $\langle R_m q, R_n k\rangle = \langle q, R_{n-m} k\rangle$의 유도 |
-| [06. Random Matrix Theory 맛보기](./ch7-ai-applications/06-random-matrix-theory.md) | 랜덤 행렬 $W_{ij} \sim \mathcal{N}(0, 1/n)$의 **고유값 분포 (Marchenko-Pastur)**, **He/Xavier 초기화**가 각 층의 출력 분산을 유지하는 수학적 근거, 신경망 깊이에 따른 신호 전파 안정성 조건, Neural Tangent Kernel의 단서 |
+| [01. Attention의 선형대수](./ch7-ml-applications/01-attention-linear-algebra.md) | $\text{softmax}(QK^\top/\sqrt{d}) V$의 **각 항의 기하학적 의미**: $QK^\top$ = 내적 유사도 행렬, softmax = 심플렉스 위의 확률 투영, $V$ 곱 = 가중평균, **$\sqrt{d}$ 스케일링**의 분산 분석 유도(독립 가정 하 $\text{Var}(q \cdot k) = d$) |
+| [02. Backpropagation의 야코비안 관점](./ch7-ml-applications/02-backpropagation.md) | 연쇄법칙 $\frac{\partial L}{\partial x} = \frac{\partial L}{\partial y} \frac{\partial y}{\partial x}$가 **행렬곱**으로 환원되는 이유, **Vector-Jacobian Product (VJP)** 의 효율성, forward-mode(JVP) vs reverse-mode(VJP)의 계산량 비교, autograd의 선형대수적 기반 |
+| [03. Batch Normalization의 조건수 개선](./ch7-ml-applications/03-batchnorm.md) | 입력 분포 정규화가 **헤시안 $H = X^\top X$ 의 조건수**에 미치는 영향 유도, whitening 관점에서 $\kappa(H) \to 1$로 향하는 기전, Gradient Descent 수렴 속도와 조건수의 관계 $\|\theta_k - \theta^*\| \leq ((\kappa-1)/(\kappa+1))^k \|\theta_0 - \theta^*\|$ |
+| [04. Spectral Normalization과 GAN](./ch7-ml-applications/04-spectral-normalization.md) | **립시츠 상수 = $\sigma_{\max}(W)$** 의 증명, Power Iteration으로 $\sigma_{\max}$를 학습 중 효율적으로 추정, Wasserstein GAN의 1-립시츠 제약을 $W \to W/\sigma_{\max}(W)$로 강제하는 근거, 실제 구현(SN-GAN) |
+| [05. RoPE(Rotary Positional Encoding)](./ch7-ml-applications/05-rope.md) | 위치 인코딩을 **2D 회전 행렬** $R_\theta = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$로 해석, 복소수 $e^{i\theta}$와의 동치성, **직교성 $R^\top R = I$** 이 내적 보존을 주는 이유, 상대 위치 인코딩 $\langle R_m q, R_n k\rangle = \langle q, R_{n-m} k\rangle$의 유도 |
+| [06. Random Matrix Theory 맛보기](./ch7-ml-applications/06-random-matrix-theory.md) | 랜덤 행렬 $W_{ij} \sim \mathcal{N}(0, 1/n)$의 **고유값 분포 (Marchenko-Pastur)**, **He/Xavier 초기화**가 각 층의 출력 분산을 유지하는 수학적 근거, 신경망 깊이에 따른 신호 전파 안정성 조건, Neural Tangent Kernel의 단서 |
 
 </details>
 
@@ -319,21 +378,35 @@ print(f"  |내 고유값 - np.linalg 고유값|_max = "
 
 ## 📖 각 문서 구성 방식
 
-모든 문서는 **동일한 11-섹션 골격**으로 작성됩니다. "공리부터 증명까지, 모든 것을 직접 유도한다"는 원칙을 유지하기 위해 어느 단계도 "자명하다"로 건너뛰지 않습니다.
+모든 문서는 **11개의 핵심 요소**를 포함합니다. "공리부터 증명까지, 모든 것을 직접 유도한다"는 원칙을 지키기 위해 어느 단계도 "자명하다"로 건너뛰지 않습니다. 챕터별로 두 가지 템플릿 중 하나를 사용합니다.
+
+### 템플릿 A — 이모지 기반 (Ch1, Ch2-01)
 
 | # | 섹션 | 설명 |
 |:-:|------|------|
 | 1 | 🎯 **핵심 질문** | 이 문서가 답하려는 질문 한 문장 (예: "왜 대칭행렬은 직교대각화되는가?") |
-| 2 | 🔍 **왜 이 정리가 AI에서 중요한가** | Attention·PCA·GAN·RoPE 등 구체 AI 알고리즘과의 연결점 |
+| 2 | 🔍 **왜 이 개념이 AI에서 중요한가** | Attention·PCA·GAN·RoPE 등 구체 AI 알고리즘과의 연결점 |
 | 3 | 📐 **수학적 선행 조건** | 같은 레포 내 다른 문서 링크, 필요 시 후속 레포 참조 |
 | 4 | 📖 **직관적 이해** | 기하학적·물리적 직관으로 먼저 납득 (수식 전 그림과 언어) |
 | 5 | ✏️ **엄밀한 정의** | 정의(Definition)를 수식으로 명시, 기호 표기법 통일 |
 | 6 | 🔬 **정리와 증명** | 정리(Theorem) + **생략 없는** 완전 증명, 필요 시 Lemma 분리 |
-| 7 | 💻 **NumPy/SymPy 구현으로 검증** | 증명한 정리를 수치적으로 확인, `np.linalg`와 직접 구현 대조 |
+| 7 | 💻 **NumPy / SymPy 구현으로 검증** | 증명한 정리를 수치적으로 확인, `np.linalg`와 직접 구현 대조 |
 | 8 | 🔗 **AI/ML 연결** | 논문·코드와 이어지는 구체 예시 ("Attention Is All You Need" 식(1) 등) |
 | 9 | ⚖️ **가정과 한계** | 가정이 깨지면 어떻게 되는가, 수치적 함정 (조건수 등) |
 | 10 | 📌 **핵심 정리** | 한 문장 요약 + 공식 박스 |
 | 11 | 🤔 **생각해볼 문제** | 증명 변형·반례·일반화 문제 + 해설 |
+
+### 템플릿 B — 번호 기반 (Ch2-02부터 Ch7까지)
+
+| # | 섹션 | 설명 |
+|:-:|------|------|
+| — | 📌 **학습 목표** + 🎯 **핵심 질문** (전문) | 문서 도입부에서 다룰 내용과 답할 질문 명시 |
+| 1 | **정의 / 문제 설정** | 정의(Definition)와 기호 표기법 |
+| 2–N | **정리·증명 본문** | 핵심 정리들과 완전 증명, 직관 해설 및 응용 연결 |
+| N+1 | **Python 실험** | NumPy/SciPy로 정리를 수치 검증 |
+| N+2 | **요약** | 표·체크리스트로 압축 |
+| N+3 | **참고 문헌** | 원전·표준 교재 인용 |
+| N+4 | **다음 문서 예고** + **내비게이션** | 다음 절의 핵심 내용과 이전/다음/README 링크 |
 
 ### 스타일 가이드
 
@@ -342,6 +415,7 @@ print(f"  |내 고유값 - np.linalg 고유값|_max = "
 3. **기하학적 그림 포함** — 2·3차원 시각화로 직관 구축 (matplotlib 실플롯)
 4. **기호 표기 일관성** — 스칼라는 소문자 $a$, 벡터는 볼드 소문자 $\mathbf{x}$, 행렬은 대문자 $A$, 부분공간은 calligraphic $\mathcal{W}$
 5. **AI 응용은 구체적 논문과 연결** — "Attention Is All You Need"(Vaswani et al., 2017)의 식 (1), "Turk & Pentland Eigenfaces"(1991)처럼 원전 명시
+6. **푸터 네비게이션 일관** — 모든 문서 하단에 `[◀ 이전] | [📚 README] | [다음 ▶]` 링크 포함, 챕터 경계에서는 이웃 챕터의 첫/마지막 문서로 연결
 
 ---
 
