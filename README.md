@@ -2,16 +2,35 @@
 
 # 🧮 Linear Algebra Deep Dive
 
-**"행렬을 곱하는 것과, 선형변환의 합성이라는 본질을 아는 것은 다르다"**
+### **행렬을 곱하는 것** 과, **선형변환의 합성** 이라는 본질을 아는 것은 **다르다.**
 
 <br/>
 
-> *"`np.linalg.svd`를 호출하는 것과, 모든 행렬이 왜 3개의 회전·스케일·회전으로 분해되는지 증명할 수 있는 것은 다르다.  
-> `np.linalg.eig`를 부르는 것과, 왜 PCA의 주성분이 공분산 행렬의 고유벡터인지 라그랑주 승수로 유도할 수 있는 것은 다르다.  
-> Attention의 $QK^\top$을 계산하는 것과, 그것이 왜 내적 유사도이고 왜 $\sqrt{d}$로 나누는지 분산 관점에서 증명할 수 있는 것은 다르다."*
+> *`np.linalg.svd` 를 **호출하는 것** 과, 모든 행렬이 왜*
+>
+> $$A = U \Sigma V^\top \quad (\text{회전} \to \text{스케일} \to \text{회전})$$
+>
+> *로 분해되는지 증명할 수 있는 것은 다르다.*
+>
+> *`np.linalg.eig` 를 **부르는 것** 과, 왜 **PCA 의 주성분이 공분산 행렬의 고유벡터** 인지 **라그랑주 승수** 로 유도할 수 있는 것은 다르다.*
+>
+> *Attention 의 $QK^\top$ 을 **계산하는 것** 과, 그것이 왜 **내적 유사도** 이고 왜*
+>
+> $$\mathrm{Attention}(Q, K, V) = \mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right) V$$
+>
+> *의 $\sqrt{d}$ 로 나누는지 분산 관점에서 증명할 수 있는 것은 다르다.*
 
-벡터공간의 8개 공리부터 SVD·Spectral Theorem·Jordan Form·Pseudoinverse까지,  
-**"왜 행렬은 숫자 상자가 아니라 벡터공간 사이의 선형 사상인가"** 라는 질문으로 PCA·Attention·Backprop·BatchNorm·Spectral Normalization·RoPE의 수학적 기반을 공리부터 끝까지 파헤칩니다
+<br/>
+
+**다루는 정리 (시간순)**
+
+Cayley 1858 *행렬 대수* · Jordan 1870 *Jordan canonical form* · Beltrami 1873 / Jordan 1874 *SVD* · Cauchy 1829 *Spectral Theorem* · Schmidt 1907 *Gram–Schmidt* · Moore 1920 / Penrose 1955 *Pseudoinverse* · Pearson 1901 *PCA* · Vaswani 2017 *Scaled Dot-Product Attention* · Su 2021 *RoPE*
+
+<br/>
+
+**핵심 질문**
+
+> **왜 행렬은 숫자 상자가 아니라 벡터공간 사이의 선형 사상인가** — 벡터공간의 8개 공리부터 SVD · Spectral Theorem · Jordan Form · Pseudoinverse 까지, PCA · Attention · Backprop · BatchNorm · Spectral Normalization · RoPE 의 수학적 기반을 공리부터 끝까지 파헤칩니다.
 
 <br/>
 
